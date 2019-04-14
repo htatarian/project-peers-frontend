@@ -1,0 +1,78 @@
+<div class="container p-5">
+    <p class="lead">Register A New Account</p>
+    <hr>
+    <p class="text-danger">All fields are required.</p>
+    <form *ngIf="registerForm" [formGroup]="registerForm" (ngSubmit)="register()">
+        <div class="form-group">
+            <label for="txtFirstName">First name</label>
+            <input type="text" formControlName="firstname" class="form-control" id="txtFirstName"
+                   placeholder="Enter first name" required>
+            <!-- First Name Validation -->
+            <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)"
+                 class="">
+                <div *ngIf="firstname.errors.required">
+                    <p class="text-danger">Please enter your first name.</p>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="txtLastName">Last name</label>
+            <input type="text" formControlName="lastname" class="form-control" id="txtLastName"
+                   placeholder="Enter last name" required>
+            <!-- Last Name Validation -->
+            <div *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)"
+                 class="">
+                <div *ngIf="lastname.errors.required">
+                    <p class="text-danger">Please enter your last name.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="txtEmail">Email</label>
+            <input type="email" formControlName="email" class="form-control" id="txtEmail" placeholder="Enter email"
+                   required>
+            <!-- Email Validation -->
+            <div *ngIf="email.invalid && (email.dirty || email.touched)">
+                <div *ngIf="email.errors.required">
+                    <p class="text-danger">Email is required.</p>
+                </div>
+                <div *ngIf="email.errors.email">
+                    <p class="text-danger">Not a valid email.</p>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="txtPassword">Password</label>
+            <input type="password" formControlName="password" class="form-control" id="txtPassword"
+                   placeholder="Enter Password" required>
+            <!-- Password Validation -->
+            <div *ngIf="password.invalid && (password.dirty || password.touched)">
+                <div *ngIf="password.errors.required">
+                    <p class="text-danger">Please enter a password</p>
+                </div>
+                <div *ngIf="password.errors.minlength">
+                    <p class="text-danger">Password must be at least 8 characters long.</p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="txtPasswordConfirm">Confirm Password</label>
+            <input type="password" formControlName="confirmpassword" class="form-control"
+                   id="txtPasswordConfirm" placeholder="Confirm Password" required>
+        </div>
+        <div *ngIf="confirmpassword.invalid && (confirmpassword.dirty || confirmpassword.touched)"
+             class="alert alert-danger">
+            <div *ngIf="confirmpassword.errors.required">
+                Please confirm your password.
+            </div>
+        </div>
+        <div *ngIf="error" class="alert alert-danger">
+            {{error}}
+        </div>
+        <br>
+        <button type="submit" class="btn btn-dark btn-block" [disabled]="!registerForm.valid">Register</button>
+    </form>
+</div>

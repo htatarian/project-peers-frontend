@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" routerLink="#"><h4>Project Peers</h4></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item" *ngIf="authService.getToken()">
+                <a (click)="onNavbarCollapse()" class="nav-link" routerLink="new-project"
+                   routerLinkActive="text-primary">New Post</a>
+            </li>
+            <li class="nav-item">
+                <a (click)="onNavbarCollapse()" class="nav-link" routerLink="projects" routerLinkActive="text-primary">Projects
+                    List</a>
+            </li>
+            <li class="nav-item">
+                <a (click)="onNavbarCollapse()" class="nav-link" routerLink="about" routerLinkActive="text-primary">About</a>
+            </li>
+            <li class="nav-item" *ngIf="!authService.getToken()">
+                <a (click)="onNavbarCollapse()" class="nav-link mr-auto" routerLink="login"
+                   routerLinkActive="text-primary">Login</a>
+            </li>
+            <li class="nav-item" *ngIf="authService.getToken()">
+                <a (click)="onNavbarCollapse()" class="nav-link" routerLink="logged-out"
+                   routerLinkActive="text-primary">Log Out</a>
+            </li>
+            <li class="nav-item" *ngIf="!authService.getToken()">
+                <a (click)="onNavbarCollapse()" class="nav-link" routerLink="register" routerLinkActive="text-primary">Register</a>
+            </li>
+        </ul>
+    </div>
+</nav>

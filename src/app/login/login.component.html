@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="vertical-center">
+        <img class="logo" src="assets/icon.png" alt="Conestoga Projects Logo">
+        <form class="pt-5" id="id" name="id" [formGroup]="loginForm" (ngSubmit)="login()">
+            <!-- Email -->
+            <div class="form-group row">
+                <label for="email" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-12">
+                    <input type="email" formControlName="email" class="form-control" id="email" name="email"
+                           placeholder="Email" autocomplete="off" required>
+                </div>
+            </div>
+            <!-- Email Validation-->
+            <div *ngIf="email.invalid && (email.dirty || email.touched)"
+                 class="alert alert-danger">
+                <div *ngIf="email.errors.required">
+                    Email is required.
+                </div>
+            </div>
+            <!-- Password -->
+            <div class="form-group row">
+                <label for="password" class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-12">
+                    <input type="password" formControlName="password" class="form-control" id="password" name="password"
+                           placeholder="Password" autocomplete="off" required>
+                </div>
+            </div>
+            <!-- Password Validation -->
+            <div *ngIf="password.invalid && (password.dirty || password.touched)"
+                 class="alert alert-danger">
+                <div *ngIf="password.errors.required">
+                    Password is required.
+                </div>
+            </div>
+            <div *ngIf="invalidLogin"
+                 class="alert alert-danger">
+                Invalid email or password.
+            </div>
+            <!--<label>-->
+            <!--<input type="checkbox" value="remember"> Remember me-->
+            <!--</label>-->
+            <br>
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    <input type="submit" class="btn btn-lg btn-dark btn-block" value="Sign in"
+                           [disabled]="!loginForm.valid">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
