@@ -14,7 +14,7 @@ const httpOptions = {
 
 export class ProjectService {
 
-    private URL = 'http://localhost:3000/api/projects';
+    private URL = 'http://159.203.46.18/api/projects';
 
     constructor(private http: HttpClient) {
     }

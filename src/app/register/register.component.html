@@ -57,18 +57,18 @@
                 </div>
             </div>
         </div>
-        <br>
         <div class="form-group">
             <label for="txtPasswordConfirm">Confirm Password</label>
             <input type="password" formControlName="confirmpassword" class="form-control"
                    id="txtPasswordConfirm" placeholder="Confirm Password" required>
-        </div>
-        <div *ngIf="confirmpassword.invalid && (confirmpassword.dirty || confirmpassword.touched)"
-             class="alert alert-danger">
-            <div *ngIf="confirmpassword.errors.required">
-                Please confirm your password.
+            <!-- Confirm Password Validation-->
+            <div *ngIf="confirmpassword.invalid && (confirmpassword.dirty || confirmpassword.touched)">
+                <div *ngIf="confirmpassword.errors.required">
+                    <p class="text-danger">Please confirm your password.</p>
+                </div>
             </div>
         </div>
+
         <div *ngIf="error" class="alert alert-danger">
             {{error}}
         </div>

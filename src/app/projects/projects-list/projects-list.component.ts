@@ -11,7 +11,6 @@ import {Observable} from 'rxjs';
 export class ProjectsListComponent implements OnInit {
 
     projects: Project[];
-    currentOwner: string;
 
     constructor(private projectService: ProjectService) {
     }
@@ -19,10 +18,5 @@ export class ProjectsListComponent implements OnInit {
     ngOnInit() {
         this.projectService.getProjects()
             .subscribe(projects => this.projects = projects);
-    }
-
-    getOwner(id: string) {
-        this.projectService.getOwner(id).subscribe(value => this.currentOwner = value);
-        return this.currentOwner;
     }
 }

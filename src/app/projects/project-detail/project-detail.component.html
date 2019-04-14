@@ -1,6 +1,9 @@
 <div class="container p-3" *ngIf="selectedProject">
-    <h1 class="display-4"><b>{{selectedProject.title}}</b></h1>
-    <hr>
-    <h2>Details:</h2>
-    <p>{{selectedProject.description}}</p>
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">{{selectedProject.title | titlecase}}</h4>
+        <small class="float-right">Posted by <i><b>{{owner}}</b></i></small>
+        <br>
+        <hr>
+        <p class="mb-0">{{selectedProject.description}}</p>
+    </div>
 </div>

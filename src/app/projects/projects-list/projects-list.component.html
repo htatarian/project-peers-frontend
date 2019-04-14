@@ -4,14 +4,12 @@
         <tr>
             <th scope="col">Projects</th>
             <th scope="col" fxHide fxShow.lg>Date Posted</th>
-            <th scope="col" fxHide fxShow.lg>Posted By</th>
         </tr>
         </thead>
         <tbody>
         <tr *ngFor="let project of projects">
             <td scope="row"><a href="projects/{{project._id}}">{{project.title | titlecase | slice:0:30}}</a></td>
             <td fxHide fxShow.lg>{{project.date | date}}</td>
-            <td fxHide fxShow.lg>{{projectService.getOwner(project._id).subscribe()}}</td>
         </tr>
         </tbody>
     </table>

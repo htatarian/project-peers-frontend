@@ -8,7 +8,7 @@ import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 })
 export class RegisterationService {
 
-    private URL = 'http://localhost:3000/api/users';
+    private URL = 'http://159.203.46.18/api/users';
 
     constructor(private http: HttpClient) {
 
